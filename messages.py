@@ -11,3 +11,13 @@ Available commands:
 help = """
 To get an apk send me a link like this: https://play.google.com/store/apps/details?id=org.thunderdog.challegram. If the apk is available, I will send you it.
 """
+
+about = """
+This bot is created to download apks of apps that are available at Play Store for free. This bot won't download you any app that you have to pay for.
+
+All apks are taken from apkpure.com.
+
+Source code: https://github.com/yalexaner/download-apk-bot. You are welcome to contribute this project.
+
+Version: 0.1.
+"""
