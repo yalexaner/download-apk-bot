@@ -24,6 +24,10 @@ def help(message):
     bot.send_message(message.chat.id, messages.help)
     # bot.send_message(message.chat.id, messages.help, reply_markup=types.ReplyKeyboardHide())
 
+@bot.message_handler(commands=['about'])
+def about(message):
+    bot.send_message(message.chat.id, messages.about)
+
 @bot.message_handler(content_types=['text'])
 def get_url(message):
     url = apk.find(message.text)
