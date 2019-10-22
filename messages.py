@@ -6,10 +6,16 @@ Hey. I can help you download an apk of any free Play Store app. You just have to
 Available commands:
 	/start	— shows this message
 	/help	— shows help message
+	/about	— shows information about the bot
 """
 
 help = """
 To get an apk send me a link like this: https://play.google.com/store/apps/details?id=org.thunderdog.challegram. If the apk is available, I will send you it.
+
+Available commands:
+	/start	— shows this message
+	/help	— shows help message
+	/about	— shows information about the bot
 """
 
 about = """
