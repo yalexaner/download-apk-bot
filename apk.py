@@ -4,10 +4,7 @@ import re
 import requests
 import shutil
 
-try: 
-    from BeautifulSoup import BeautifulSoup
-except ImportError:
-    from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup
 
 class Apk(object):
     def find(self, url):
