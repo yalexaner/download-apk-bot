@@ -1,4 +1,13 @@
+# dirs
 __pycache__/
-*.swp
 
+# text files
 start
+
+# virtual environment
+bin
+lib
+lib64
+include
+share
+pyvenv.cfg
