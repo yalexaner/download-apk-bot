@@ -6,6 +6,13 @@ import shutil
 from bs4 import BeautifulSoup
 
 class Apk(object):
+    def name(self, url):
+        url = re.sub(r'play\.google', 'apkpure', url)
+
+        page = requests.get(url).text
+
+        return BeautifulSoup(page).body.find('div', attrs={'class': 'title-like'}).text.strip()
+
     def find(self, url):
         url = re.sub(r'play\.google', 'apkpure', url)
 
@@ -15,15 +22,10 @@ class Apk(object):
 
         page = requests.get(url).text
 
-        try:
-            return BeautifulSoup(page).body.find('a', attrs={'id': 'download_link'}).get('href')
-        except AttributeError:
-            return ''
+        return BeautifulSoup(page).body.find('a', attrs={'id': 'download_link'}).get('href')
 
     def download(self, url):
-        file = requests.get(self.find(url), stream = True)
-
-        with open('file.apk', "wb") as receive:
-                shutil.copyfileobj(file.raw, receive)
-        
-        del file
+        try:
+            return requests.get(self.find(url), stream=True).content
+        except AttributeError:
+            return ''

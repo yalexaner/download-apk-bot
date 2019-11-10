@@ -30,11 +30,12 @@ def about(message):
 
 @bot.message_handler(content_types=['text'])
 def get_url(message):
-    url = apk.find(message.text)
-    # bot.send_message(message.chat.id, url, reply_markup=types.ReplyKeyboardHide())
+    file = apk.download(message.text)
+    name = apk.name(message.text)
 
-    if url:
-        bot.send_message(message.chat.id, url)
+    if file:
+        bot.send_message(message.chat.id, 'Found the file, uploading...')
+        bot.send_document(message.chat.id, data=file, caption=name)
     else:
         bot.send_message(message.chat.id, 'Sorry. There\'s no such file in there')
 
