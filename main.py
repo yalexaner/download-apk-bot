@@ -32,8 +32,11 @@ def about(message):
 def get_url(message):
     url = apk.find(message.text)
     # bot.send_message(message.chat.id, url, reply_markup=types.ReplyKeyboardHide())
-    bot.send_message(message.chat.id, url)
-    # apk.download(message.text)
+
+    if url:
+        bot.send_message(message.chat.id, url)
+    else:
+        bot.send_message(message.chat.id, 'Sorry. There\'s no such file in there')
 
 @server.route("/bot", methods=['POST'])
 def get_message():

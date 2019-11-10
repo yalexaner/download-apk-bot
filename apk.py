@@ -15,7 +15,10 @@ class Apk(object):
 
         page = requests.get(url).text
 
-        return BeautifulSoup(page).body.find('a', attrs={'id': 'download_link'}).get('href')
+        try:
+            return BeautifulSoup(page).body.find('a', attrs={'id': 'download_link'}).get('href')
+        except AttributeError:
+            return ''
 
     def download(self, url):
         file = requests.get(self.find(url), stream = True)
